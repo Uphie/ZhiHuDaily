@@ -25,11 +25,16 @@
 -----------
 由于Gif截取遇到问题，于是改为短视频，[点此播放](http://www.meipai.com/media/489977367)。
 
+* 二维码下载
+
+	![download qrcode](https://o1wjx1evz.qnssl.com/app/qrcode/WlZE)
+* [链接下载](https://www.pgyer.com/WlZE)
+
 版本
 ----------
 注：建议使用最新代码编译后再预览，代码会不时小幅更新。
 
-* 2016-03-15，基本功能都已实现。
+* 2016-03-15。
 
 联系我
 ------------
