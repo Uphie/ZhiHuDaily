@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">知乎日报</string>
+    <string name="label_login">请登录</string>
+    <string name="label_favorite">我的收藏</string>
+    <string name="label_offline_download">离线下载</string>
+
+    <string name="menu_night_mode">夜间模式</string>
+    <string name="menu_preferences">设置选项</string>
+
+    <string name="editor">主编</string>
+    <string name="home">首页</string>
+    <string name="recommender">推荐者</string>
+    <string name="weibo_login">使用微博登录</string>
+    <string name="tip_login">知乎日报不会未经同意通过你的微博帐号发布任何信息</string>
+
+    <string name="login">登录</string>
+    <string name="sina_weibo">新浪微博</string>
+    <string name="tencent_weibo">腾讯微博</string>
+
+    <string name="menu_save_img">保存图片</string>
+
+    <string name="comments_title">%1$d条点评</string>
+
+    <string name="pre_normal">常规</string>
+    <string name="pre_other">其它</string>
+    <string name="pre_feedback">反馈</string>
+    <string name="pre_auto_offline_dl">自动离线下载</string>
+    <string name="pre_auto_offline_dl_tip">仅Wi-Fi下可用，自动下载最新内容</string>
+    <string name="pre_non_img">无图模式</string>
+    <string name="pre_non_img_tip">2G/3G网络下不下载图片</string>
+    <string name="pre_big_font">大字号</string>
+    <string name="pre_push_msg">推送消息</string>
+    <string name="pre_comment_share">点评分享到微博</string>
+    <string name="pre_clear_cache">清除缓存</string>
+    <string name="pre_check_update">检查更新</string>
+    <string name="pre_feedback_">意见反馈</string>
+
+    <string name="drawer_open">DrawerOpen</string>
+    <string name="drawer_close">DrawerClose</string>
+    <string name="long_comment">%1$d条长评</string>
+    <string name="short_comment">%1$d条短评</string>
+
+    <string name="long_comment_empty">深度长评虚位以待</string>
+    <string name="comment_deleted">抱歉，原点评已经被删除</string>
+
+    <string name="label_update">有新版本『知乎日报』啦，是否下载？</string>
+    <string name="label_update_content">版本：%1$s \n更新日志：%2$s</string>
+
+    <string name="cancel">取消</string>
+    <string name="ok">确定</string>
+
+</resources>

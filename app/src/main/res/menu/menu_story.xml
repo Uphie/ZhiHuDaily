@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_share"
+        android:icon="@drawable/share"
+        android:title=""
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/menu_collect"
+        android:icon="@drawable/collect"
+        android:title=""
+        app:showAsAction="always" />
+    <group>
+        <item
+            android:id="@+id/menu_comment"
+            android:icon="@drawable/comment"
+            android:title=""
+            app:showAsAction="always|withText" />
+        <item
+            android:id="@+id/menu_comment_num"
+            android:title="123"
+            app:showAsAction="always|withText" />
+    </group>
+    <group>
+        <item
+            android:id="@+id/menu_praise"
+            android:icon="@drawable/praise"
+            android:title=""
+            app:showAsAction="always|withText" />
+        <item
+            android:id="@+id/menu_praise_num"
+            android:title="12k"
+            app:showAsAction="always|withText" />
+    </group>
+
+</menu>

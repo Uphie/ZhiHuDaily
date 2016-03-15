@@ -1,0 +1,59 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    lintOptions{
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    defaultConfig {
+        applicationId "studio.uphie.zhihudaily"
+        minSdkVersion 14
+        targetSdkVersion 23
+        versionCode 3
+        versionName "2016-03-15"
+    }
+    signingConfigs {
+        release {
+            storeFile file("..\\key.jks")
+            storePassword "uphie'szhihudaily"
+            keyAlias "知乎日报"
+            keyPassword "uphie'szhihudaily"
+        }
+    }
+
+    buildTypes {
+        debug {
+            //remove unused resources
+            shrinkResources true
+            //use specified sign config
+            signingConfig signingConfigs.release
+        }
+        release {
+            //disable proguard,for it has problems to fix,one of which is about umeng update library
+            minifyEnabled false
+            //remove unused resources
+            shrinkResources true
+            //use specified sign config
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:design:23.1.1'
+    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.jakewharton:butterknife:7.0.1'
+    compile 'com.loopj.android:android-async-http:1.4.9'
+    compile 'com.google.code.gson:gson:2.6.1'
+    compile 'com.facebook.fresco:fresco:0.9.0'
+    compile 'io.paperdb:paperdb:1.1'
+    compile files('libs/umeng-analytics-v5.6.4.jar')
+    compile files('libs/umeng-update-v2.7.0.jar')
+}
