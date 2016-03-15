@@ -48,5 +48,6 @@
 
     <string name="cancel">取消</string>
     <string name="ok">确定</string>
+    <string name="pause">暂停</string>
 
 </resources>

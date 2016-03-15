@@ -48,6 +48,9 @@
   public static ** valueOf(java.lang.String);
 }
 
+-keepattributes *Annotation*
+-keep class sun.misc.Unsafe { *; }
+
 #gson
 -keepattributes Signature
 -keepattributes *Annotation*
@@ -68,6 +71,7 @@
     @butterknife.* <methods>;
 }
 
+#fresco
 -keep @com.facebook.common.internal.DoNotStrip class *
 -keepclassmembers class * {
     @com.facebook.common.internal.DoNotStrip *;

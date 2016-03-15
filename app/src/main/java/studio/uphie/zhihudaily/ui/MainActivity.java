@@ -133,11 +133,15 @@ public class MainActivity extends AbsBaseActivity implements OnSetTitleListener 
         });
         lv_columns.addHeaderView(header);
 
+        //encrypt analytic info
         AnalyticsConfig.enableEncrypt(true);
-        //check for update and update silently
-        UmengUpdateAgent.update(this);
         //forbidden check config,  while it does not work!
         UmengUpdateAgent.setUpdateCheckConfig(false);
+        //check for update
+        UmengUpdateAgent.update(this);
+        //forbidden delta update
+        UmengUpdateAgent.setDeltaUpdate(false);
+        //disable popup
         UmengUpdateAgent.setUpdateAutoPopup(false);
         UmengUpdateAgent.setUpdateListener(new UmengUpdateListener() {
             @Override

@@ -13,7 +13,7 @@ android {
         applicationId "studio.uphie.zhihudaily"
         minSdkVersion 14
         targetSdkVersion 23
-        versionCode 3
+        versionCode 4
         versionName "2016-03-15"
     }
     signingConfigs {
@@ -33,7 +33,7 @@ android {
             signingConfig signingConfigs.release
         }
         release {
-            //disable proguard,for it has problems to fix,one of which is about umeng update library
+            //disable proguard,for it has problems to fix
             minifyEnabled false
             //remove unused resources
             shrinkResources true
@@ -56,4 +56,5 @@ dependencies {
     compile 'io.paperdb:paperdb:1.1'
     compile files('libs/umeng-analytics-v5.6.4.jar')
     compile files('libs/umeng-update-v2.7.0.jar')
+    compile files('libs/umeng-update-v2.6.0.1.jar')
 }
