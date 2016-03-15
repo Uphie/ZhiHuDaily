@@ -162,7 +162,7 @@ public class StoryDetailActivity extends AbsBaseActivity implements ViewPager.On
                 }
                 String pra_num = praised > 1000 ? new DecimalFormat("#.0").format(((float) praised) / 1000) + "K" : praised + "";
                 menu_praise_num.setText(pra_num);
-                TextToast.longShow("注：不能真正的收藏/取消收藏");
+                TextToast.longShow("注：不能真正的赞/取消赞");
                 break;
         }
     }
