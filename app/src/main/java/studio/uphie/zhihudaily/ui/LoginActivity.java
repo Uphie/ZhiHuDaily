@@ -33,7 +33,7 @@ public class LoginActivity extends AbsBaseActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_HOME_AS_UP);
         getSupportActionBar().setHomeAsUpIndicator(getResources().getDrawable(R.drawable.back));
-        getSupportActionBar().setTitle(R.string.login);
+        toolbar.setTitle(R.string.login);
     }
 
     @Override

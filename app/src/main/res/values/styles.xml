@@ -8,11 +8,12 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorControlNormal">@android:color/white</item>
         <item name="android:windowBackground">@android:color/white</item>
-        <!--溢出菜单样式-->
-        <item name="android:actionOverflowButtonStyle">@style/OverflowStyle</item>
+
+        <!--window transfer animation-->
+        <item name="android:windowAnimationStyle">@style/WindowAniStyle</item>
     </style>
 
-    <!--Overflow-->
+    <!--Overflow, does not work...-->
     <style name="OverflowStyle" parent="@android:style/Widget.Holo.ActionButton.Overflow">
         <item name="android:src">@drawable/abc_ic_menu_moreoverflow_mtrl_alpha</item>
     </style>
@@ -25,6 +26,11 @@
 
     <style name="ToolbarTitleStyle" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:textSize">17sp</item>
+    </style>
+
+    <style name="WindowAniStyle" parent="@android:style/Animation">
+        <item name="android:activityOpenEnterAnimation">@android:anim/slide_in_left</item>
+        <item name="android:activityOpenExitAnimation">@android:anim/slide_out_right</item>
     </style>
 
 </resources>

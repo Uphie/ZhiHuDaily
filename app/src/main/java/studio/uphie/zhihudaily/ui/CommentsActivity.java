@@ -91,7 +91,7 @@ public class CommentsActivity extends AbsBaseActivity {
         short_comments_num = getIntent().getIntExtra("short_comments", 0);
         long_comments_num = getIntent().getIntExtra("long_comments", 0);
 
-        getSupportActionBar().setTitle(String.format(getResources().getString(R.string.comments_title), comments_num));
+        toolbar.setTitle(String.format(getResources().getString(R.string.comments_title), comments_num));
         tv_long_comment.setText(String.format(getString(R.string.long_comment), long_comments_num));
         tv_short_comment.setText(String.format(getString(R.string.short_comment), short_comments_num));
 

@@ -255,6 +255,7 @@ public class HomeFragment extends AbsBaseFragment implements IInit, ViewPager.On
     }
 
     class Story {
+        //may not exist
         List<String> images;
         int type;
         int id;
@@ -395,7 +396,11 @@ public class HomeFragment extends AbsBaseFragment implements IInit, ViewPager.On
                         convertView = layoutInflater.inflate(R.layout.list_item_story, null);
                         newsHolder = new NewsHolder(convertView);
                         newsHolder.tv_title.setText(news.story.title);
-                        ImageUtil.displayImage(news.story.images.get(0), newsHolder.sd_img);
+                        if (news.story.images!=null&&news.story.images.size()>0){
+                            ImageUtil.displayImage(news.story.images.get(0), newsHolder.sd_img);
+                        }else {
+                            newsHolder.sd_img.setVisibility(View.GONE);
+                        }
                         //whether has read
                         if (news.hasRead) {
                             newsHolder.tv_title.setTextColor(getResources().getColor(R.color.text_gray));

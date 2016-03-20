@@ -232,6 +232,25 @@ public class MainActivity extends AbsBaseActivity implements OnSetTitleListener 
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             if (drawer_home.isDrawerOpen(Gravity.LEFT)) {
                 drawer_home.closeDrawers();
+
+                return true;
+            }else {
+                if (isTheme){
+                    //return from theme to home
+                    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                    transaction.replace(R.id.content_fragment, new HomeFragment());
+                    transaction.commit();
+                    isTheme=false;
+
+                    for(UserTheme userTheme:columnAdapter.list){
+                        userTheme.selected=false;
+                    }
+                    columnAdapter.notifyDataSetChanged();
+                    tv_home.setBackgroundColor(getResources().getColor(R.color.selected_gray));
+                    invalidateOptionsMenu();
+
+                    return true;
+                }
             }
         }
         return super.onKeyDown(keyCode, event);
