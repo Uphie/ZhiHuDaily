@@ -116,6 +116,9 @@ public class StoryDetailActivity extends AbsBaseActivity implements ViewPager.On
 
     @Override
     public void onPageSelected(int position) {
+        menu_comment_num.setText("...");
+        menu_praise_num.setText("...");
+
         current_story_id=idList.get(position);
         get(Api.URL_STORY_DETAIL_EXTRA + current_story_id);
         int story_id=idList.get(position);

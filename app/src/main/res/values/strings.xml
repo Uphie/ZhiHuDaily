@@ -7,6 +7,14 @@
     <string name="menu_night_mode">夜间模式</string>
     <string name="menu_preferences">设置选项</string>
 
+    <string name="menu_save_img">保存图片</string>
+
+    <string name="menu_agree">赞同</string>
+    <string name="menu_cancel_agree">取消赞同</string>
+    <string name="menu_report">举报</string>
+    <string name="menu_copy">复制</string>
+    <string name="menu_reply">回复</string>
+
     <string name="editor">主编</string>
     <string name="home">首页</string>
     <string name="recommender">推荐者</string>
@@ -17,7 +25,6 @@
     <string name="sina_weibo">新浪微博</string>
     <string name="tencent_weibo">腾讯微博</string>
 
-    <string name="menu_save_img">保存图片</string>
 
     <string name="comments_title">%1$d条点评</string>
 
@@ -49,5 +56,7 @@
     <string name="cancel">取消</string>
     <string name="ok">确定</string>
     <string name="pause">暂停</string>
+
+
 
 </resources>

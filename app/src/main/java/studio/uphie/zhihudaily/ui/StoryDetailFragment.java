@@ -23,7 +23,7 @@ import studio.uphie.zhihudaily.widgets.UWebView;
  * Created by Uphie on 2016/3/8 0008.
  * Email:uphie7@gmail.com
  */
-public class StoryDetailFragment extends AbsBaseFragment{
+public class StoryDetailFragment extends AbsBaseFragment {
 
     @Bind(R.id.scrollView)
     ScrollView scrollView;
@@ -41,6 +41,7 @@ public class StoryDetailFragment extends AbsBaseFragment{
     UWebView webView;
 
     private int news_id;
+    private News news;
 
     @Override
     public int getLayoutId() {
@@ -49,57 +50,72 @@ public class StoryDetailFragment extends AbsBaseFragment{
 
     @Override
     public void init() {
-        news_id = getArguments().getInt("news_id");
-        get(Api.URL_STORY_DETAIL + news_id);
+    }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if (isVisibleToUser) {
+            //when this fragment is visible to user
+            if (news == null) {
+                news_id = getArguments().getInt("news_id");
+                get(Api.URL_STORY_DETAIL + news_id);
+            }else {
+                refresh(news);
+            }
+        }
     }
 
     @Override
     public void onDataOK(String url, String data) {
         if (url.equals(Api.URL_STORY_DETAIL + news_id)) {
-            News news = JsonUtil.getEntity(data, News.class);
-            if (!TextUtils.isEmpty(news.image)) {
-                ImageUtil.displayImage(news.image, sd_newsImg);
-            } else {
-                block_story_img.setVisibility(View.GONE);
-            }
-            tv_title.setText(news.title);
-            tv_img_source.setText(news.image_source);
-            if (news.recommenders == null) {
-                block_recommenders.setVisibility(View.GONE);
-            } else {
-                block_recommenders.removeViews(1, block_recommenders.getChildCount()-1);
-                for (News.Recommender rec : news.recommenders) {
-                    SimpleDraweeView avatar = (SimpleDraweeView) View.inflate(getActivity(), R.layout.list_item_recommender, null);
-                    ImageUtil.displayImage(rec.avatar, avatar);
-                    block_recommenders.addView(avatar);
-                }
-            }
-
-            //build a html content and load it with webview
-            String css = "";
-            for (String css_url : news.css) {
-                css += "<link rel=\"stylesheet\" href=" + css_url + ">\n";
-            }
-            String js = "";
-            for (String js_url : news.js) {
-                js += "<script src=" + js_url + "/>\n";
-            }
-            String body = news.body.replaceAll("<div class=\"img-place-holder\"></div>", "");
-
-            StringBuilder builder = new StringBuilder();
-            builder.append("<html>\n")
-                    .append("<head>\n")
-                    .append(css).append(js)
-                    .append("</head>\n")
-                    .append("<body>")
-                    .append(body)
-                    .append("</body>\n")
-                    .append("</html>");
-            webView.loadData(builder.toString(), "text/html;charset=UTF-8", "UTF-8");
-
+            news = JsonUtil.getEntity(data, News.class);
+            refresh(news);
         }
     }
 
+    private void refresh(News news) {
+        if (!TextUtils.isEmpty(news.image)) {
+            ImageUtil.displayImage(news.image, sd_newsImg);
+        } else {
+            block_story_img.setVisibility(View.GONE);
+        }
+        tv_title.setText(news.title);
+        tv_img_source.setText(news.image_source);
+        if (news.recommenders == null) {
+            block_recommenders.setVisibility(View.GONE);
+        } else {
+            block_recommenders.removeViews(1, block_recommenders.getChildCount() - 1);
+            for (News.Recommender rec : news.recommenders) {
+                SimpleDraweeView avatar = (SimpleDraweeView) View.inflate(getActivity(), R.layout.list_item_recommender, null);
+                ImageUtil.displayImage(rec.avatar, avatar);
+                block_recommenders.addView(avatar);
+            }
+        }
+
+        //build a html content and load it with webview
+        String css = "";
+        for (String css_url : news.css) {
+            css += "<link rel=\"stylesheet\" href=" + css_url + ">\n";
+        }
+        String js = "";
+        for (String js_url : news.js) {
+            js += "<script src=" + js_url + "/>\n";
+        }
+        String body = news.body.replaceAll("<div class=\"img-place-holder\"></div>", "");
+
+        StringBuilder builder = new StringBuilder();
+        builder.append("<html>\n")
+                .append("<head>\n")
+                .append(css).append(js)
+                .append("</head>\n")
+                .append("<body>")
+                .append(body)
+                .append("</body>\n")
+                .append("</html>");
+        webView.loadData(builder.toString(), "text/html;charset=UTF-8", "UTF-8");
+
+    }
 
     class News {
         String body;

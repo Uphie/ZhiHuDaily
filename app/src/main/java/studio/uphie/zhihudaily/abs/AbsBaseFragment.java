@@ -39,20 +39,22 @@ public abstract class AbsBaseFragment extends Fragment implements IInit {
     public void onNetworkUnavailable(String url) {
 
     }
+
     /**
      * GET请求
      *
      * @param url
      */
     public void get(final String url) {
-        if (!NetworkUtil.getInstance().checkNetworkAvailable()){
+        if (!NetworkUtil.getInstance().checkNetworkAvailable()) {
             onNetworkUnavailable(url);
             return;
         }
         HttpClient.get(url, new TextHttpResponseHandler() {
             @Override
             public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-
+                String error = throwable.toString();
+                String response=responseString;
             }
 
             @Override

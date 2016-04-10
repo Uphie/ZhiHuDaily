@@ -31,7 +31,6 @@
                     android:id="@+id/tv_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="这种让人无痛减肥、性情大变乃至辞职的病，叫失恋"
                     android:textColor="@android:color/white"
                     android:textSize="20sp" />
 
@@ -40,7 +39,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_gravity="end"
-                    android:text="500 Days With Summer"
                     android:textColor="#aaffffff"
                     android:textSize="13sp" />
             </LinearLayout>
@@ -56,7 +54,6 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/recommender"
                 android:textColor="@android:color/darker_gray" />
         </LinearLayout>
 
